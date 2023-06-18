@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="icon" href="{% static 'img/Diseño sin título.png' %}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/estilo.css' %}">
+    <script src="{% static 'js/API_DOM.JS' %}"></script>
+    <title>Productos</title>
+</head>
+<body class="fondoForm">
+    <nav class="navbar navbar-expand-sm navbar-light bg-ffda9e" id="barranav">
+    
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#opciones">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+    
+         <a href="#" class="navbar-brand">
+            <img src="{% static 'img/Diseño sin título.png' %}" width="150px" height="150px">
+        </a>
+
+        <div class="collapse navbar-collapse" id="opciones" ><!--Para hacer menú-->
+            <ul class="navbar-nav">
+                <li class="nav-item"><a class="nav-link" href="{% url 'PetShop' %}" >Inicio 🐾</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'Productos' %}" >Productos 🐾</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'SobreNosotros' %}" >Sobre Nosotros 🐾</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'Formulario' %}" >Trabaja con nosotros 🐾</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'Tablas' %}">Tablas 🐾</a></li>
+            </ul>
+        </div>
+    </nav>
+    <hr>
+    <div class="container">
+        <div class="row" >
+            {% for Producto in cositas %}
+            <div class="col-12 col-md-4">
+                <div class="card text-center" >
+                    <img src="{{ Producto.imagen.url }}" class="card-img-top mx-auto" >
+                    <div class="card-body">
+                        <h3 class="card-tittle">
+                            {{Producto.nombre_producto}}
+                        </h3>
+                        <p class="card-text">
+                            {{Producto.descripcion}}
+                        </p>
+                        <a href="#" class="btn btn-secondary col-12">Comprar</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    <br>
+        <footer>
+            <div class="row col-12" id="link">
+                <div class="col-lg-2">
+                    <img src="{% static 'img/Diseño sin título.png' %}" alt="logo" width="200px">
+                </div>
+                <div class="col-lg-1" >
+                    <strong><a href="{% static 'PetShop.html' %}">Inicio</a></strong> 
+                </div>
+                <div class="col-lg-1">
+                    <strong><a href="{% static 'Productos.html' %}">Productos</a></strong>
+                </div>
+                <div class="col-lg-1">
+                    <strong><a href="{% static 'SobreNosotros.html' %}">Nosotros</a></strong>
+                </div>
+                <div class="col-lg-1">
+                    <strong><a href="{% static 'Formulario.html' %}">Trabaja con nosotros</a></strong>
+                </div>
+                <div class="col-lg-2">
+                    <strong>Síguenos</strong>
+                    <br><br>
+                    <div class="row">
+                        <img src="{% static 'img/facebook - Editado.png' %}" alt="" width="30px" height="30px"
+                            style=" margin-left: 15px;">
+                        <img src="{% static 'img/ig - Editado.png' %}" alt="" width="30px" height="30px" style=" margin-left: 10px;">
+                        <img src="{% static 'img/twitter - Editado.png' %}" alt="" width="30px" height="30px" style=" margin-left: 10px;">
+                    </div>
+                </div>
+                <div class="col-lg-3" >
+                    <strong>Contacto</strong>
+                    <br><br>
+                    <div class="row">
+                        <img src="{% static 'img/ubi.png' %}" alt="" width="35px" height="35px"
+                            style="margin-right: 10px; margin-left: 15px;">
+                        <p>Av. Esq. Blanca 501, Maipú</p>
+                    </div>
+                    <div class="row">
+                        <img src="{% static 'img/wsp.png' %}" alt="" width="35px" height="35px"
+                            style="margin-right: 10px; margin-left: 15px;">
+                        <p>+56 96587 1456</p>
+                    </div>
+                    <div class="row">
+                        <img src="{% static 'img/correo.png' %}" alt="" width="35px" height="35px"
+                            style="margin-right: 10px; margin-left: 15px;">
+                        <p>Zoorpresa@petshop.cl</p>
+                    </div>
+                    <br>
+                    <div id="caja" class="cajaa">
+                        <div id="hora"></div>
+                    </div>
+                    <br>
+    
+                    <p>&copy; CopyRight - 2023</p>
+                </div>
+            </div>
+        </footer>
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>  
+    </body>
+</html>

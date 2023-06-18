@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="icon" href="{% static 'img/Diseño sin título.png' %}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/estilo.css' %}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.17.0/jquery.validate.js"></script>
+
+    <title>Productos</title>
+</head>
+<body class="fondoForm">
+    <nav class="navbar navbar-expand-sm navbar-light bg-ffda9e" id="barranav">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#opciones">
+            <span class="navbar-toggler-icon"></span><!---crear espacio-->
+        </button>
+    
+        <a href="#" class="navbar-brand">
+            <img src="{% static 'img/Diseño sin título.png' %}" width="150px" height="150px">
+        </a>
+
+        <div class="collapse navbar-collapse" id="opciones" ><!--Para hacer menú-->
+            <ul class="navbar-nav">
+                <li class="nav-item"><a class="nav-link" href="{% url 'PetShop' %}" >Inicio 🐾</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'Productos' %}" >Productos 🐾</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'SobreNosotros' %}" >Sobre Nosotros 🐾</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'Formulario' %}" >Trabaja con nosotros 🐾</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'Tablas' %}">Tablas 🐾</a></li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container">
+            <table class="table tr" >
+                <thead >
+                    <tr>
+                        <th>Nro producto</th>
+                        <th>Nombre producto</th>
+                        <th>Descripcion</th>
+                        <th>Categoria</th>
+                        <th>Valor</th>
+                        <th>Cantidad</th>
+                        <th>Imagen</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for Producto in productos %}
+                    <tr>
+                        
+                        <td>{{ Producto.nro_producto }}</td>
+                        <td>{{ Producto.nombre_producto }}</td>
+                        <td>{{ Producto.descripcion }}</td>
+                        <td>{{ Producto.categoria }}</td>
+                        <td>{{ Producto.precio }}</td>
+                        <td>{{ Producto.cantidad }}</td>
+                        {% if Producto.imagen  %}
+                            <td>
+                                <img src="{{ Producto.imagen.url }}" style="height: 50px; width: 50px;">
+                            </td>
+                        {% else %}
+                            <td>
+                                <p style="color:red">No tiene foto</p>
+                            </td>
+                        {% endif %}
+                        <td><a href="{% url 'eliminar' Producto.nro_producto %}" class="btn btn-danger">Eliminar</td>
+                        <td><a href="{% url 'modificar' Producto.nro_producto%}" class="btn btn-success">Modificar</a></td>
+                    </tr>
+                    {%endfor%}
+                    
+                </tbody>
+            </table>
+            <a href="{% url 'crear'%}" class="btn btn-success">Crear Producto</a> 
+    </div>
+    <br>
+
+    <footer>
+        <div class="row col-12" id="link">
+            <div class="col-lg-2">
+                <img src="{% static 'img/Diseño sin título.png' %}" alt="logo" width="200px">
+            </div>
+            <div class="col-lg-1" id="pethome">
+                <strong><a href="{% static 'PetShop.html' %}" >Inicio</a></strong> 
+            </div>
+            <div class="col-lg-1" id="prod">
+                <strong><a href="{% static 'Productos.html' %}">Productos</a></strong>
+            </div>
+            <div class="col-lg-1" id="sobren">
+                <strong><a href="{% static 'SobreNosotros.html' %}">Nosotros</a></strong>
+            </div>
+            <div class="col-lg-1" id="form">
+                <strong><a href="{% static 'Formulario.html' %}">Trabaja con nosotros</a></strong>
+            </div>
+            <div class="col-lg-2">
+                <strong>Síguenos</strong>
+                <br><br>
+                <div class="row">
+                    <img src="{% static 'img/facebook - Editado.png' %}" alt="" width="30px" height="30px"
+                        style=" margin-left: 15px;">
+                    <img src="{% static 'img/ig - Editado.png' %}"alt="" width="30px" height="30px" style=" margin-left: 10px;">
+                    <img src="{% static 'img/twitter - Editado.png' %}"alt="" width="30px" height="30px" style=" margin-left: 10px;">
+
+                </div>
+            </div>
+            <div class="col-lg-3" >
+                <strong>Contacto</strong>
+                <br><br>
+                <div class="row">
+                    <img src="{% static 'img/ubi.png' %}" alt="" width="35px" height="35px"
+                        style="margin-right: 10px; margin-left: 15px;">
+                    <p>Av. Esq. Blanca 501, Maipú</p>
+                </div>
+                <div class="row">
+                    <img src="{% static 'img/wsp.png' %}" alt="" width="35px" height="35px"
+                        style="margin-right: 10px; margin-left: 15px;">
+                    <p>+56 96587 1456</p>
+                </div>
+                <div class="row">
+                    <img src="{% static 'img/correo.png' %}" alt="" width="35px" height="35px"
+                        style="margin-right: 10px; margin-left: 15px;">
+                    <p>Zoorpresa@petshop.cl</p>
+                </div>                
+                <br>
+                <div id="caja" class="cajaa">
+                    <div id="hora"></div>
+                </div>
+                <br>
+
+                <p>&copy; CopyRight - 2023</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

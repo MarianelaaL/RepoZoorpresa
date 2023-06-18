@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="icon" href="{% static 'img/Diseño sin título.png' %}">
+    <title>Sobre Nosotros</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/estilo.css' %}">
+    <script src="{% static 'js/API_DOM.JS' %}"></script>
+     </head>
+<body class="fondoForm">
+    <nav class="navbar navbar-expand-sm navbar-light bg-ffda9e" id="barranav">
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#opciones">
+            <span class="navbar-toggler-icon"></span><!---crear espacio-->
+        </button>
+
+        <a href="#" class="navbar-brand">
+            <img src="{% static 'img/Diseño sin título.png' %}" width="150px" height="150px">
+        </a>
+        <div class="collapse navbar-collapse" id="opciones" ><!--Para hacer menú-->
+            <ul class="navbar-nav">
+                <li class="nav-item"><a class="nav-link" href="{% url 'PetShop' %}" >Inicio 🐾</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'Productos' %}" >Productos 🐾</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'SobreNosotros' %}" >Sobre Nosotros 🐾</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'Formulario' %}" >Trabaja con nosotros 🐾</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'Tablas' %}">Tablas 🐾</a></li>
+            </ul>
+        </div>
+    </nav> <!--cierre menu-->
+    <hr>
+    <div class="container-fluid" id="letra">
+        <div class="row">
+            <div class="col-md">
+                <div class="card" >
+                    <img src="{% static 'img/Diseno_sin_titulo_1.png' %}" class="card-img-top" style="width:100%">
+                    <div class="card-body">
+                        <h4 class="card-tittle"><shooter>MISION</shooter></h4>                   
+                        <p class="card-text">
+                            Ayudar a los amantes de las mascotas a encontrar los productos que necesitan para sus animales de manera fácil y rápida, proporcionando una plataforma en línea accesible y confiable que les permita realizar sus compras de manera segura y sin problemas, mientras se fomenta la conciencia y el cuidado de los animales y se apoya a la fundación sin fines de lucro.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-tittle"><shooter>VISION</shooter></h4>
+                        <p class="card-text">
+                            Ser la tienda de referencia en línea para productos de mascotas en Chile, brindando a los clientes una experiencia de compra personalizada y única, al mismo tiempo que se contribuye al bienestar animal y se apoya a la fundación sin fines de lucro.
+                        </p>
+                    </div>    
+                    <img src="{% static 'img/Vision.png' %}" class="card-img-bottom" style="width:100%">
+                </div>
+            </div>
+        </div> <!--row-->
+    </div> <!--container fluid-->
+    <br>
+
+    <div class="row">
+        <div class="col-md-7 mx-auto">
+          <div class="embed-responsive embed-responsive-16by9">
+            <iframe class="embed-responsive-item" width="479" height="219" src="https://www.youtube.com/embed/Gs2bBM4PULo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+          </div>
+        </div>
+      </div>
+      
+    <br>
+    <footer>
+        <div class="row col-12" id="link">
+            <div class="col-lg-2">
+                <img src="{% static 'img/Diseño sin título.png' %}" alt="logo" width="200px">
+            </div>
+            <div class="col-lg-1" >
+                <strong><a href="{% url 'PetShop' %}">Inicio</a></strong> 
+            </div>
+            <div class="col-lg-1">
+                <strong><a href="{% url 'Productos' %}">Productos</a></strong>
+            </div>
+            <div class="col-lg-1">
+                <strong><a href="{% url 'SobreNosotros' %}">Nosotros</a></strong>
+            </div>
+            <div class="col-lg-1">
+                <strong><a href="{% url 'Formulario' %}">Trabaja con nosotros</a></strong>
+            </div>
+            <div class="col-lg-2">
+                <strong>Síguenos</strong>
+                <br><br>
+                <div class="row">
+                    <img src="{% static 'img/facebook - Editado.png' %}" alt="" width="30px" height="30px"
+                        style=" margin-left: 15px;">
+                    <img src="{% static 'img/ig - Editado.png' %}" alt="" width="30px" height="30px" style=" margin-left: 10px;">
+                    <img src="{% static 'img/twitter - Editado.png' %}" alt="" width="30px" height="30px" style=" margin-left: 10px;">
+
+                </div>
+            </div>
+            <div class="col-lg-3">
+                <strong>Contacto</strong>
+                <br><br>
+                <div class="row">
+                    <img src="{% static 'img/ubi.png' %}" alt="" width="35px" height="35px"
+                        style="margin-right: 10px; margin-left: 15px;">
+                    <p>Av. Esq. Blanca 501, Maipú</p>
+                </div>
+                <div class="row">
+                    <img src="{% static 'img/wsp.png' %}" alt="" width="35px" height="35px"
+                        style="margin-right: 10px; margin-left: 15px;">
+                    <p>+56 96587 1456</p>
+                </div>
+                <div class="row">
+                    <img src="{% static 'img/correo.png' %}" alt="" width="35px" height="35px"
+                        style="margin-right: 10px; margin-left: 15px;">
+                    <p>Zoorpresa@petshop.cl</p>
+                </div>
+                <br>
+                <div id="caja" class="cajaa">
+                    <div id="hora"></div>
+                </div>
+                <br>
+
+                <p>&copy; CopyRight - 2023</p>
+            </div>
+        </div>
+
+        
+    </footer>
+</body>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>  
+</html>

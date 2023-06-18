@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.17.0/jquery.validate.js"></script>
+    <link href="{% static 'css/estilos.css' %}" rel="stylesheet">
+    <title>Modificar</title>
+</head>
+<body>
+    <div class="container">
+        <h2>Modificar Producto </h2>
+        <form method="POST" enctype="multipart/form-data" id="formulario2">
+            {% csrf_token %}
+
+            <div class="row">
+                <label for="{{ form.field.name}}">
+                    {{form.nro_producto.label}}
+                </label>
+                {{ form.nro_producto}}
+            </div>
+            
+            <div class="row">
+                <label for="{{ form.field.name}}">
+                    {{form.nombre_producto.label}}
+                </label>
+                {{ form.nombre_producto}}
+            </div>
+
+            <div class="row">
+                <label for="{{ form.field.name}}">
+                    {{form.descripcion.label}}
+                </label>
+                {{ form.descripcion}}
+            </div>
+
+            <div class="row">
+                <label for="{{ form.field.name}}">
+                    {{form.precio.label}}
+                </label>
+                {{ form.precio}}
+            </div>
+
+            <div class="row">
+                <label for="{{ form.field.name}}">
+                    {{form.categoria.label}}
+                </label>
+                {{ form.categoria}}
+            </div>
+
+            <div class="row">
+                <label for="{{ form.field.name}}">
+                    {{form.cantidad.label}}
+                </label>
+                {{ form.cantidad}}
+            </div>
+
+            <div class="row">
+                <label for="{{ productoform.field.name}}">
+                    {{form.imagen.label}}
+                </label>
+                {{ form.imagen}}
+            </div>
+
+            <br><br>
+            <input type="submit" class="btn btn-success" value="Modificar">
+            <a href="{% url 'PetShop' %}" class="btn btn-primary">Inicio</a>
+            <a href="{% url 'Tablas' %}" class="btn btn-primary">Volver</a>
+        </form>
+    </div>
+    
+</body>
+</html>
