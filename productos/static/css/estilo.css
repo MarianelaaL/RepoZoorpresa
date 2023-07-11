@@ -7,10 +7,17 @@
    background-color: #F2DAC4;
 }
 
-nav li a{
-    font-family: sans-serif;
-    text-transform: uppercase;
-}
+.navbar{
+    -webkit-box-shadow:0px 2px 2px #dddddd;
+    -moz-box-shadow:0px 2px 2px #dddddd;
+    box-shadow:0px 2px 2px #dddddd;
+    position: fixed;
+    z-index: 1;
+    display: flex;
+    transition: 0.3s;
+    width: 100%;
+    top: 0;
+  }
 
 #bienvenidos{
     padding-top: 40px;
@@ -66,7 +73,7 @@ footer div p{
 
 #letraOP{
     color: black;
-    font-size: 22px;
+    font-size: 16px;
     font-weight: bold;
     font-family: sans-serif;
 }
@@ -77,10 +84,7 @@ footer div p{
     font-family: sans-serif;
 }
 
-.navbar {
-    font-size: 18px;
-    border-radius: 20px;
-  }
+
 
 .bg-ffda9e {
     background-color: #D9A05B;

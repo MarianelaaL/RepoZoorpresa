@@ -15,23 +15,24 @@ def Productos(request):
     }
     return render(request,'main/Productos.html', datos)
 
-
 def SobreNosotros(request):
     
     return render(request,'main/SobreNosotros.html')
-
+@lr
 def Formulario(request):
     
     return render(request,'main/Formulario.html')
-
+@lr
 def imc(request):
     
     return render(request,'proce/imc.html')
-
+@lr
 def Tablas(request):
     productos = Producto.objects.raw('select * from productos_producto')
     datos = {'productos' : productos}
     return render(request,'proce/Tablas.html', datos)
+
+
 @lr
 def crear(request):
     if request.method=="POST":
@@ -93,7 +94,7 @@ def modificarcat(request,id):
 def Tienda(request):
     cositas = Producto.objects.all()
     datos={
-        'cosita':cositas
+        'cositas':cositas
     }
     return render(request,'main/Tienda.html', datos)
 

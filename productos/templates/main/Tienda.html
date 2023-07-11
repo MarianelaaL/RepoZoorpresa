@@ -1,5 +1,3 @@
-{% extends "main/PetShop.html" %}
-{% block content %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,7 +11,41 @@
     <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
     <link rel="stylesheet" href="{% static 'css/estilo.css' %}">
 </head>
-<body>
+<body class="fondoForm">
+    <nav class="navbar navbar-expand-sm navbar-light bg-ffda9e">
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#opciones">
+            <span class="navbar-toggler-icon"></span><!---crear espacio-->
+        </button>
+
+        <a href="#" class="navbar-brand">
+            <img src="{% static 'img/Diseño sin título.png' %}" width="150px" height="150px">
+        </a>
+        
+        <div class="collapse navbar-collapse" id="opciones" ><!--Para hacer menú-->
+            <ul class="navbar-nav">
+                <li class="nav-item"><a class="nav-link" href="{% url 'PetShop' %}" >Inicio 🐾</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'Productos' %}" >Productos 🐾</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'SobreNosotros' %}" >Sobre Nosotros 🐾</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'Formulario' %}" >Trabaja con nosotros 🐾</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'Tablas' %}">Tablas 🐾</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'Tienda' %}">Tienda 🐾</a></li>
+            </ul>
+        </div>
+
+        <div  >
+            {% if user.is_authenticated %}
+                <a href="{% url 'logout' %}" id="userr">
+                    <img src="{% static 'img/icono-user.png' %}" alt="user" width="50px">Cerrar Sesión
+                </a>
+            {% else %}
+                <a href="{% url 'login' %}" id="userr">
+                    <img src="{% static 'img/icono-user.png' %}" alt="user" width="50px">Iniciar Sesión
+                </a>
+            {% endif %}
+        </div>
+    </nav> <!--MENU-->
+
     <div class="container">
         <h2> Tienda </h2><br>
         <div class="row">
@@ -24,12 +56,11 @@
                             {% for Producto in cositas %}
                             <div class="col-6">
                                 <div class="card text-center">
-                                    {% if Producto.imagen %}
-                                        <img src="{{ Producto.imagen.url }}" class="card-img-top mx-auto">
-                                    {% endif %}
+                                    <img src=" {{ Producto.imagen.url }}" class="card-img-top mx-auto">
                                     <div class="card-body">
-                                        <h5 class="card-title" style="font-weight:bold;">{{Producto.nombre_producto}}</h5>
-                                        <p class="card-text">
+                                        <h5 class="card-title" style="font-weight:bold;"> 
+                                            {{Producto.nombre_producto}} </h5>
+                                        <p class="card-text"> 
                                             {{Producto.descripcion}}<br>
                                             Precio:$ {{ Producto.precio }}<br>
                                         </p>
@@ -44,10 +75,9 @@
                     </div>
                 </div>
                 <div class="col-4">
-                    {% include "carrito.html" %}
+                    {% include "main/carrito.html" %}
                 </div>
             </div>
     </div>
 </body>
 </html>
-{% endblock %}

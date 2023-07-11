@@ -14,8 +14,8 @@ class Producto(models.Model):
     nro_producto = models.IntegerField(primary_key=True, max_length=3, verbose_name="Nro producto")
     descripcion = models.CharField(max_length=100, blank=True, verbose_name="Descripcion")
     categoria = models.ForeignKey(Categoria, on_delete=models.CASCADE, verbose_name="Categoria")
-    precio = models.IntegerField(max_length=7, blank=True, verbose_name="Precio")
-    cantidad = models.IntegerField(max_length=7, blank=True, verbose_name="Cantidad")
+    precio = models.IntegerField(blank=True, null=True, verbose_name="Precio")
+    cantidad = models.IntegerField( blank=True, verbose_name="Cantidad")
     imagen=models.ImageField(upload_to="imagenes",null=True, blank=True,verbose_name="Imagen")
 
     def __str__(self):
