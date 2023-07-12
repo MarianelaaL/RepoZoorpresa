@@ -17,14 +17,13 @@ class RegistroUserForm(UserCreationForm):
 class ProductosForm(forms.ModelForm):
     class Meta:
         model = Producto
-        fields = ['nombre_producto','nro_producto', 'descripcion', 'categoria', 'precio', 'cantidad', 'imagen']
+        fields = ['nombre_producto','nro_producto', 'descripcion', 'categoria', 'precio', 'imagen']
         labels = {
             'nombre_producto' : 'Nombre de producto',
             'nro_producto' : "Nro producto",
             'descripcion' : "Descripcion",
             'categoria' : "Categoria",
             'precio' : "Precio",
-            'cantidad':"Cantidad de producto",
             'imagen': "Imagen "
         }
         widgets={
@@ -56,12 +55,6 @@ class ProductosForm(forms.ModelForm):
                     'placeholder' : 'Ingrese el precio del producto',
                     'class' : 'form-control',
                     'id' : 'precio' }
-            ),
-            'cantidad' : forms.TextInput(
-                attrs={
-                    'placeholder' : 'Ingrese la cantidad del producto',
-                    'class' : 'form-control',
-                    'id' : 'cantidad'}
             ),
             'imagen':forms.FileInput(
                 attrs={

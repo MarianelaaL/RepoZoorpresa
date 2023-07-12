@@ -44,7 +44,6 @@
                         <th>Descripcion</th>
                         <th>Categoria</th>
                         <th>Valor</th>
-                        <th>Cantidad</th>
                         <th>Imagen</th>
                     </tr>
                 </thead>
@@ -57,7 +56,6 @@
                         <td>{{ Producto.descripcion }}</td>
                         <td>{{ Producto.categoria }}</td>
                         <td>{{ Producto.precio }}</td>
-                        <td>{{ Producto.cantidad }}</td>
                         {% if Producto.imagen  %}
                             <td>
                                 <img src="{{ Producto.imagen.url }}" style="height: 50px; width: 50px;">
