@@ -3,6 +3,8 @@ from .models import Producto, Boleta, detalle_boleta
 from .forms import ProductosForm, CategoriaForm
 from django.contrib.auth.decorators import login_required as lr
 from productos.compra import Carrito
+from django.core.paginator import Paginator
+from django.http import Http404
 
 def PetShop(request):
 
@@ -31,7 +33,6 @@ def Tablas(request):
     productos = Producto.objects.raw('select * from productos_producto')
     datos = {'productos' : productos}
     return render(request,'proce/Tablas.html', datos)
-
 
 @lr
 def crear(request):
@@ -93,8 +94,15 @@ def modificarcat(request,id):
 
 def Tienda(request):
     cositas = Producto.objects.all()
+    page = request.GET.get('page',1)
+    try:
+        paginator = Paginator(cositas,10)
+        cositas = paginator.page(page)
+    except:
+        raise Http404
     datos={
-        'cositas':cositas
+        'cositas':cositas,
+        'paginator':paginator
     }
     return render(request,'main/Tienda.html', datos)
 
@@ -145,3 +153,4 @@ def generarBoleta(request):
     carrito = Carrito(request)
     carrito.limpiar()
     return render(request, 'main/detallecarrito.html',datos)
+

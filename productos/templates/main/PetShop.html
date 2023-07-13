@@ -13,7 +13,7 @@
     <title>Zoorpresa</title>
 </head>
 <body class="fondoForm">
-    <nav class="navbar navbar-expand-sm navbar-light bg-ffda9e" id="barraNav">
+    <nav class="navbar navbar-expand-sm navbar-light bg-ffda9e" >
 
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#opciones">
             <span class="navbar-toggler-icon"></span><!---crear espacio-->
@@ -24,6 +24,7 @@
         </a>
         
         <div class="collapse navbar-collapse"  ><!--Para hacer menú-->
+            {% if user.is_authenticated %}
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item"><a class="nav-link" href="{% url 'PetShop' %}" >Inicio 🐾</a></li>
                 <li class="nav-item"><a class="nav-link" href="{% url 'Productos' %}" >Productos 🐾</a></li>
@@ -32,6 +33,12 @@
                 <li class="nav-item"><a class="nav-link" href="{% url 'Tablas' %}">Tablas 🐾</a></li>
                 <li class="nav-item"><a class="nav-link" href="{% url 'Tienda' %}">Tienda 🐾</a></li>
             </ul>
+            {% else %}
+            <ul class="navbar-nav mr-auto"> 
+                <li class="nav-item"><a class="nav-link" href="{% url 'PetShop' %}" >Inicio 🐾</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'SobreNosotros' %}" >Sobre Nosotros 🐾</a></li>
+            </ul>
+            {% endif %}
         </div>
 
         <div  >
@@ -47,7 +54,7 @@
         </div>
     </nav> <!--cierre menu-->
     <hr>
-
+    <br><br><br><br><br><br>
     <div class="container-fluid">
         <div id="carousel1" class="carousel slide" data-ride="carousel"> 
             <ol class="carousel-indicators">

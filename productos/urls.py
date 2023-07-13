@@ -21,4 +21,5 @@ urlpatterns=[
     path('eliminar/<id>', eliminar_producto, name="eliminar"),
     path('restar/<id>', restar_producto, name="restar"),
     path('limpiar/', limpiar_carrito, name="limpiar"),
+    
 ]

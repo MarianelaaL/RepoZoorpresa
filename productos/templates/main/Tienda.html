@@ -45,7 +45,7 @@
             {% endif %}
         </div>
     </nav> <!--MENU-->
-
+    <br><br><br><br><br>
     <div class="container">
         <h2> Tienda </h2><br>
         <div class="row">
@@ -71,12 +71,15 @@
                             {% endfor %}
                           </div>
                         </div>
-
                     </div>
                 </div>
                 <div class="col-4">
                     {% include "main/carrito.html" %}
                 </div>
+                
+            </div>
+            <div>
+                {% include "main/paginator.html" %}
             </div>
     </div>
 </body>
